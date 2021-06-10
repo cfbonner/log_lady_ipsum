@@ -48,5 +48,6 @@ defmodule LogLadyWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug LogLadyWeb.CORS
   plug LogLadyWeb.Router
 end
