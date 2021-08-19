@@ -44,6 +44,7 @@ defmodule LogLady.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:corsica, "~> 1.0"},
+      {:distillery, "~> 2.1", runtime: false},
     ]
   end
 
