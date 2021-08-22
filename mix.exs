@@ -4,13 +4,20 @@ defmodule LogLady.MixProject do
   def project do
     [
       app: :log_lady,
-      version: "0.1.0",
-      elixir: "~> 1.7",
+      version: "0.0.1",
+      elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      releases: [
+        log_lady: [
+          steps: [
+            :assemble, :tar
+          ]
+        ]
+      ]
     ]
   end
 
@@ -44,7 +51,6 @@ defmodule LogLady.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:corsica, "~> 1.0"},
-      {:distillery, "~> 2.1", runtime: false},
     ]
   end
 
