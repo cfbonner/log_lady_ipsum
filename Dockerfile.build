@@ -1,0 +1,18 @@
+FROM bitwalker/alpine-elixir-phoenix:latest
+
+ENV MIX_ENV prod
+
+# Add the files to the image
+ADD . . 
+
+# Cache Elixir deps
+RUN mix deps.get --only prod
+RUN mix deps.compile
+
+# Compile app
+RUN mix compile
+RUN mix phx.digest
+
+# Generate release
+ENTRYPOINT ["mix"]
+CMD ["release"]

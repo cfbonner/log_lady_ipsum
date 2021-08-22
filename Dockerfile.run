@@ -1,0 +1,15 @@
+FROM alpine:latest
+
+# Set environment variables
+ENV MIX_ENV=prod
+
+# Copy tarball release
+ADD _build/prod/log_lady-0.0.1.tar.gz ./
+
+RUN apk add --no-cache bash openssl libgcc libstdc++ ncurses-libs
+
+# Set user
+USER nobody:nobody
+
+# Set entrypoint
+ENTRYPOINT ["./bin/log_lady"]
