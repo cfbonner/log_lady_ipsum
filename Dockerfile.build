@@ -15,4 +15,4 @@ RUN mix phx.digest
 
 # Generate release
 ENTRYPOINT ["mix"]
-CMD ["release"]
+CMD ["release", "--overwrite"]
