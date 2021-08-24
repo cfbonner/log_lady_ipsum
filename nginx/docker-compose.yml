@@ -7,6 +7,7 @@ services:
       - "80:80"
     volumes:
       - ./conf.d:/etc/nginx/conf.d:ro
+      - /var/www/log_lady_fe:/var/www/log_lady_fe
     networks:
       - nginx-network
 networks:
