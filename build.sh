@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Remove old releases
-rm -rf _build/prod/rel/*
+rm -rf _build/prod/*
 
 # Build the image
 docker build --rm -t log_lady-build -f Dockerfile.build . --no-cache

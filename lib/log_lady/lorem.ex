@@ -12,7 +12,7 @@ defmodule LogLady.Lorem do
   end
 
   def get_words(count) do
-    Text.all
+    get_text()
     |> String.replace(["\n", ".", ",", "?", "!"], "")
     |> String.split()
     |> Enum.uniq()
@@ -25,7 +25,7 @@ defmodule LogLady.Lorem do
   end
 
   def get_sentences(count) do
-    get_text
+    get_text()
     |> String.split([".\ ", "!\ ", "?\ "])
     |> Enum.shuffle()
     |> Enum.take(count)
@@ -35,7 +35,7 @@ defmodule LogLady.Lorem do
   end
 
   def get_paragraphs(count) do
-    get_text
+    get_text()
     |> String.split("\n\n")
     |> Enum.shuffle()
     |> Enum.take(count)

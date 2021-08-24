@@ -17,3 +17,11 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+## Release
+
+cd /var/www/source
+git pull
+sh ./build.sh
+docker-compose up -d
+cd nginx && docker-compose up -d && cd ..
