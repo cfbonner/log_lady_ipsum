@@ -5,11 +5,19 @@ services:
     container_name: nginx-server
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./conf.d:/etc/nginx/conf.d:ro
       - /var/www/log_lady_fe:/var/www/log_lady_fe
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
     networks:
       - nginx-network
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
 networks:
   nginx-network:
     external: true
